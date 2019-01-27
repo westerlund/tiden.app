@@ -12,17 +12,33 @@
 <body>
     <h1>Tiden</h1>
     <h2>The ultimate time tracker</h2>
-    <pre id="days">Tiden has helped tracking over ... days!</pre>
+    <pre>Tiden has helped tracking over <span id="days">   </span> days!</pre>
+    <br>
+    <img width="500pt" src="tiden-simulator.png" />
 
     <script type="text/javascript" async>
+
+        const element = document.getElementById('days');
+        const steps = [
+            ".  ", ".. ", " ..", "  .", "   "
+        ]
+
+        element.innerHTML = steps[steps.length - 1];
+
+        let i = 0;
+        const interval = setInterval(() => {
+            element.innerHTML = steps[i % steps.length];
+            i++;
+        }, 150);
+
         fetch('https://api.tiden.app/statistics', { mode: 'cors' })
-        .then(response => response.json())
-        .then(json => {
-            document.getElementById('days').innerHTML = `Tiden has helped tracking over ${parseInt(json.days)} days!`;
-        })
-        .catch(error => console.log(error));
-        // const json = await response.json();
-        
+            .then(response => response.json())
+            .then(json => {
+                element.innerHTML = parseInt(json.days);
+                clearInterval(interval);
+            })
+            .catch(error => console.log(error));
+
     </script>
 </body>
 
