@@ -13,27 +13,49 @@
 
         html,
         body {
-            background: -moz-linear-gradient(106deg, #5CB025 0%, #8CCC38 100%);
-            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #8CCC38), color-stop(100%, #5CB025));
-            background: -webkit-linear-gradient(106deg, #5CB025 0%, #8CCC38 100%);
-            background: -o-linear-gradient(106deg, #5CB025 0%, #8CCC38 100%);
-            background: -ms-linear-gradient(106deg, #5CB025 0%, #8CCC38 100%);
-            background: linear-gradient(344deg, #5CB025 0%, #8CCC38 100%);
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             font-weight: 300;
-            background-repeat: cover;
-            /* height: 100%;
+            height: 100%;
             width: 100%;
-            margin: 0;
-            padding: 0; */
+        }
+
+        html {
+            background-image:
+                linear-gradient(
+                    to bottom right,
+                    #CDFF62 0%,
+                    #CDFF62 25%,
+                    #B0E853 25%,
+                    #B0E853 50%,
+                    #8CCE40 50%,
+                    #8CCE40 75%,
+                    #5CB025 75%,
+                    #5CB025 100%
+                );
+            background-position: 50% 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100%;
+            width: 100%;
+        }
+
+        #contents {
+            align-content: space-between;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: space-around;
+            width: 100%;
         }
 
         #contents #left {
-            position: absolute;
-            top: 50%;
-            transform: translate(0, -50%);
             color: white;
-            left: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 64px;
+            min-width: 300px;
+            width: auto;
         }
 
         #contents #left #description {
@@ -41,23 +63,22 @@
         }
 
         #contents #left img {
+            height: 50px;
             margin: 0;
             padding: 0;
             vertical-align: middle;
-            height: 50px;
         }
 
         #contents #left h1 {
-            margin: 0;
-            margin-left: 14px;
             font-size: 42pt;
-            padding: 0;
             font-weight: 500;
+            margin: 0 0 0 14px;
+            padding: 0;
         }
 
         #contents #left #header {
-            display: flex;
             align-items: center;
+            display: flex;
         }
 
         #contents #left h2 {
@@ -72,16 +93,17 @@
         }
 
         #contents #left #appstore {
-            margin-top: 44px;
             height: 44px;
+            margin-top: 44px;
         }
 
         #contents #right {
-            position: absolute;
-            bottom: 0;
             color: white;
-            right: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
             overflow: hidden;
+            width: auto;
         }
 
         #contents #right img {
@@ -91,22 +113,34 @@
         #days {
             font-family: 'Courier New', Courier, monospace
         }
+
+        #inner-contents {
+            align-content: center;
+            display: flex;
+            height: 100%;
+            justify-content: space-between;
+            width: 100%;
+        }
     </style>
 </head>
 
 <body>
     <div id="contents">
-        <div id="left">
-            <div id="header">
-                <img src="tiden-logo.svg">
-                <h1>Tiden</h1>
+        <div id="inner-contents">
+            <div id="left">
+                <div>
+                    <div id="header">
+                        <img src="tiden-logo.svg">
+                        <h1>Tiden</h1>
+                    </div>
+                    <h2 id="description">The ultimate time tracker</h2>
+                    <p>Tiden has helped tracking over <span id="days">   </span> days!</p>
+                    <img id="appstore" src="appstore-white.svg">
+                </div>
             </div>
-            <h2 id="description">The ultimate time tracker</h2>
-            <p>Tiden has helped tracking over <span id="days">   </span> days!</p>
-            <img id="appstore" src="appstore-white.svg">
-        </div>
-        <div id="right">
-            <img src="tiden-snapshot.png" width="840">
+            <div id="right">
+                <img src="tiden-snapshot.png" width="840">
+            </div>
         </div>
     </div>
 
